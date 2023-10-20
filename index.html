@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <style>
+        #search::placeholder {
+            /* color: white; */
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .active{
+            display: block;
+        }
+        .loading{
+            display: none;
+        }
+        @media screen and (max-width: 500px) {
+   .searchBtn{
+    margin-left: 135px;
+
+   }
+}
+    </style>
+</head>
+<body>
+
+
+    <div class="w-full h-[100vh] overflow-x-hidden  flex flex-col items-center md:bg-blue-400 bg-black pt-4">
+        <h1 class="font-extrabold text-white mt-8 text-center text-3xl">WEATHER APP</h1>
+      
+        <div class="flex md:w-[40%] w-[80%] mx-auto md:flex-row flex-col justify-around mt-9 md:mb-[-47px] h-[16%]" >
+            <div class="w-35% h-auto" ><button class="text-white text-lg font-medium border  rounded-md w-full p-2 pl-4 pr-4  bg-white/30" yourWeather onclick="showlocationBar()">Your Weather</button></div>
+            <div class="md:w-35%  h-auto"><button class="text-white text-lg font-medium border  rounded-md w-full p-2  bg-white/30" searchWeather onclick="showSearchBar()">Search Weather</button></div>
+        </div>    
+        <div class=" md:w-[50%] w-[138%]  items-center mt-10   searchbar hidden" searchBar >
+            <form class="form-container relative" data-searchForm >
+                <input placeholder="Search for City..." class="  pl-2 md:w-[57%] w-[58%] md:ml-[11rem] ml-[103px]  border rounded-lg h-[40px] " data-searchInput>
+                <button class="flex w-10 h-10 btn searchBtn items-center justify-center absolute top-0 md:right-[180px] right-[113px]  rounded-full" type="submit" >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <div class=" hidden flex-col items-center sub-container grant-location-container w-[400px] h-[250px] justify-center  mt-10   rounded-sm" grantaccess>
+            <img src="./image/location.png" class="brightness-125" width="80" height="80" loading="lazy">
+            <p class="font-extrabold text-white mt-8 text-center text-2xl">Grant Location Access</p>
+            <p class="font-medium text-white mt-1 text-center ">Allow Access to get weather Information</p>
+            <button class="btn  bg-white/30 text-white font-extrabold text-xl rounded-md w-[160px] mt-2" onclick="access()" data-grantAccess>Grant Access</button>
+        </div>
+        <div id="xyz">
+        <div class=" loading" >
+            <img src="./image/loading.gif" width="150" height="150">
+            <p class="text-center text-2xl text-white font-extrabold">Loading</p>
+        </div>
+        </div>
+        <div class=" mt6 pt-6 text-white flex flex-row items-center " section-1>
+            <h1 class="text-2xl  " city>Palam</h1>
+            <img class="pt-1 pl-1 brightness-125" width="35px" data-countryIcon>
+            <!-- <img class="pt-1 pl-1 brightness-125" src="./image/india-flag.png" alt="img" width="35px" > -->
+        </div>
+        <div class="mt-1"><p class="text-center text-white font-medium " weather-main>Haze</p></div>
+        <div class="mt-2 md:bg-blue-400 bg-slate-400" section-3> <img data-weatherIcon></div>
+        <div><p class="font-extrabold text-white mt-2 text-center text-3xl" temprature>25.08 deg C</p></div>
+        <div class="mt-4  flex md:flex-row flex-col justify-evenly items-center w-[40%]" section-5>
+            <div class="flex flex-col pt-1 pb-1 m-[2px] backdrop-blur-sm bg-white/30 md:w-[25%]  w-[150%] items-center justify-center md:h-[130px] h-[90px] border  rounded-md">
+                <img src="./image/windimg.png" alt="" width="15%">
+                <p class="md:text-2xl  text-white font-bold">WindSpeed</p>
+                <p class="md:text-2xl  text-white font-bold" windSpeed>1.54m/s</p>
+            </div>
+            <div class="flex flex-col pt-1 pb-1 m-[2px] backdrop-blur-sm bg-white/30 md:w-[25%]  w-[150%] items-center justify-center md:h-[130px] h-[90px] border  rounded-md">
+                <img src="./image/humidity_img.png" alt="" width="15%px">
+                <p class="md:text-2xl  text-white font-bold">Humidity</p>
+                <p class="md:text-2xl  text-white font-bold" humidity>50%</p>
+            </div>
+            <div class="flex flex-col pt-1 pb-1 m-[2px] backdrop-blur-sm bg-white/30 md:w-[25%]  w-[150%] items-center justify-center md:h-[130px] h-[90px] border  rounded-md">
+                <img src="./image/clouds.png" alt="" width="15%px">
+                <p class="md:text-2xl  text-white font-bold">Clouds</p>
+                <p class="md:text-2xl  text-white font-bold" Clouds>0%</p>
+            </div>
+        
+    </div>
+    </div>
+
+
+
+    <script src="https://kit.fontawesome.com/1b4cb2da6a.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+</body>
+</html>
